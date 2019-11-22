@@ -5,24 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js"></script>
     <link rel="stylesheet" href="css/main.css">
+
     <title>Document</title>
 </head>
 
 <body>
+    <div class="div-headings-outer">
+        <div class="uk-container">
+            <div class="div-headings-inner">
+                <h1 class="uk-heading-large heading-bold heading">Make Every&shy;thing! </h1>
+                <h1 class="uk-heading-small heading">That you ever want!</h1>
+            </div>
+        </div>
+    </div>
+    <div class="uk-container">
 
-    <div class="container">
-        <div id="todoApp">
-            <ol>
-               <todo-item
-                    v-for="item in productList"
-                    v-bind:todo="item"
-                    v-bind:key="item.id"
-               ></todo-item>
-               
-            </ol>
+
+        <div class="todo-wrapper">
+            <div class="todo-navbar">
+                <span class="navbar__id navbar__item">Id</span>
+                <span class="navbar__descr navbar__item">Description</span>
+                <hr class="uk-divider-icon">
+            </div>            
+
+            <div id="todoApp" >
+                <button class="uk-button uk-button-default btn" v-bind:id="beforeBtn" v-on:click="addTodoItem()">Add before</button>
+
+                <ul class="uk-list uk-list-divider todo-list">
+                    <todo-item v-for="item in todoList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+
+                </ul>
+
+                <button class="uk-button uk-button-default btn" id="afterBtn" v-on:click="addTodoItem(w)">Add after</button>
+            </div>
         </div>
     </div>
 
@@ -33,15 +55,10 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/script.js"></script>
 </body>
