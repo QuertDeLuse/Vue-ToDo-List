@@ -34,7 +34,13 @@ var todoApp = new Vue({
    
 
     addTodo: function() {
-      return this.todoList.push(this.newTodo);
+      if (this.isBefore == true) {
+        return this.todoList.unshift(this.newTodo);
+      }
+      if (this.isAfter == true) {
+        return this.todoList.push(this.newTodo);
+      }
+      
     }
   }
 
