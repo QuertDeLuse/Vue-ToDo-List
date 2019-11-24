@@ -13,31 +13,28 @@ var todoApp = new Vue({
     isBefore: false,
     isAfter: false,
     btnName: '',
+    newTodo: ''
   },
 
   methods: {
-    chooseStart: function (btnID, el) {  
-      console.log(el);
-      // console.log(btnID)    ;
+    chooseStart: function (btnID) {  
+
       if(btnID == 'beforeBtn') {
         this.isBefore = true;
-        this.btnName = 'Add before';
-        // todoApp.todoList.unshift('fgnf');
+        this.isAfter = false;
+        this.btnName = 'Add before'; 
       } 
       if(btnID == 'afterBtn') {
         this.isAfter = true;
+        this.isBefore = false;
         this.btnName = 'Add after';
-        // todoApp.todoList.push('fgetjrtnnf');
       }   
     },
 
-    cancelation: function () {
-      this.isBefore = false;
-      this.isAfter = false;
-    },
+   
 
     addTodo: function() {
-
+      return this.todoList.push(this.newTodo);
     }
   }
 

@@ -36,26 +36,38 @@
             </div>
 
             <div id="todoApp">                             
-                <button class="uk-button uk-button-default btn" type="button" id="beforeBtn"  uk-toggle="target: #modal-example" v-on:click="chooseStart('beforeBtn')">Add
-                    Before</button>
+                <button 
+                    class="uk-button uk-button-default btn" 
+                    type="button" 
+                    id="beforeBtn"  
+                    uk-toggle="target: #modal-example" 
+                    v-on:click="chooseStart('beforeBtn')">Add Before
+                </button>
 
                 <ul class="uk-list uk-list-divider todo-list">
-                    <todo-item v-for="item in todoList" v-bind:todo="item" v-bind:key="todoList.indexOf(item)">
+                    <li v-for="item in todoList">{{item}}</li>
+
+                    <!-- <todo-item v-for="item in todoList" v-bind:todo="item"> -->
                     </todo-item>
 
                 </ul>
 
-                <button class="uk-button uk-button-default btn" type="button" id="beforeBtn"  uk-toggle="target: #modal-example" v-on:click="chooseStart('afterBtn')">Add
-                        After</button>
+                <button 
+                    class="uk-button uk-button-default btn" 
+                    type="button" 
+                    id="beforeBtn"  
+                    uk-toggle="target: #modal-example" 
+                    v-on:click="chooseStart('afterBtn')">Add After
+                </button>
 
                 <!-- This is the modal -->
                 <div id="modal-example" uk-modal>
                     <div class="uk-modal-dialog uk-modal-body">
                         <h2 class="uk-modal-title">Enter what do you need to do:</h2>   
-                        <input class="uk-input" type="text" placeholder="Input">                 
+                        <input class="uk-input" type="text" placeholder="ToDo" v-model="newTodo">                 
                         <p class="uk-text-right">
-                            <button class="uk-button uk-button-default uk-modal-close" type="button" v-on:click="cancelation()">Cancel</button>
-                            <button class="uk-button uk-button-primary" type="button" v->{{ btnName }}</button>             
+                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                            <button class="uk-button uk-button-primary" type="button" v-on:click="addTodo">{{ btnName }}</button>             
                        
                         </p>
                     </div>
